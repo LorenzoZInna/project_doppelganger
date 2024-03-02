@@ -1,0 +1,6 @@
+#API
+fastapi
+uvicorn
+
+#.env
+python-dotenv
