@@ -1,32 +1,48 @@
 import streamlit as st
+import tensorflow as tf
+from PIL import Image
+import numpy as np
+from skimage import exposure
+import pickle
+
+# Load the pre-trained model
+model_path = 'Streamlit_Interface/happy_sad_mod.pkl'
+with open(model_path, 'rb') as f:
+    model = pickle.load(f)
 
 # Set up the Streamlit app
 st.title('Project Doppelganger')
 st.subheader('How are you feeling today?')
-st.write('Select an emotion from the dropdown menu and click the button to save your input.')
+st.write('Please upload an image of a frontal mugshot with white background.')
 
-# Display a centered image slot with a larger image
-st.markdown(
-    """
-    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-        <div style="text-align: center;">
-            <img src="https://media.istockphoto.com/id/1328201960/vector/two-theater-masks-comedy-and-drama-symbol.jpg?s=612x612&w=0&k=20&c=jsmOqB1ojCFrMCvpWmpwlwKetm2zFdaM_4_RfkhHZCc=" style="width: 350px;">
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# Create a file uploader for uploading images
+uploaded_file = st.file_uploader("Upload a frontal mugshot with white background", type=["jpg", "jpeg"])
 
-# Create a dropdown menu for selecting emotions
-emotions = ['Very Sad', 'Sad', 'Neutral', 'Happy', 'Very Happy']
-selected_emotion = st.selectbox('Select your emotion:', emotions)
+# Inform the user when the file has been uploaded
+if uploaded_file is not None:
+    st.success('Image uploaded successfully!')
 
-# Add a button to save the selected emotion to a CSV file
-if st.button('Save Emotion'):
-    # Save the selected emotion to a CSV file (you can implement this logic here)
+    # Convert the uploaded image to a format suitable for the model
+    image = Image.open(uploaded_file)
 
-    # Confirmation message
-    st.success('Emotion saved successfully!')
+    # Preprocess the image
+    target_size = (150, 150)  # Adjust according to your model's input size
+    image = image.resize(target_size)
+    image_array = np.array(image)
+    image_array = image_array.astype('float32') / 255.0  # Normalize pixel values
+
+    # Make prediction using the model
+    prediction = model.predict(np.expand_dims(image_array, axis=0))
+
+    # Display the prediction result
+    if prediction[0] > 0.5:
+        st.write("The model predicts the image is happy.")
+    else:
+        st.write("The model predicts the image is sad.")
+
+    # Display the preprocessed image
+    st.write("### Here is how your preprocessed image looks like:")
+    st.image(image_array, caption='Preprocessed Image', use_column_width=True)
 
 # Add some footer text
 st.markdown(

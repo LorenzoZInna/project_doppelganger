@@ -7,6 +7,8 @@ FROM  python:3.8.12-slim
 COPY package_folder package_folder
 COPY requirements.txt requirements.txt
 COPY models models
+COPY Streamlit_Interface Streamlit_Interface
+COPY notebooks notebooks
 
 #terminal command that we want when image is built
 
