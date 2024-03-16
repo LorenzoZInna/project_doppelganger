@@ -3,8 +3,10 @@ import pickle
 from PIL import Image
 import numpy as np
 
+# Specify the path to the pickle file
+model_path = '../models/happy_sad_mod.pkl'
+
 # Load the pre-trained model
-model_path = 'models/happy_sad_mod.pkl'
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
