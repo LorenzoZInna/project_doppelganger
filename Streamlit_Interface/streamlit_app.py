@@ -1,12 +1,10 @@
 import streamlit as st
-import tensorflow as tf
+import pickle
 from PIL import Image
 import numpy as np
-from skimage import exposure
-import pickle
 
 # Load the pre-trained model
-model_path = 'Streamlit_Interface/happy_sad_mod.pkl'
+model_path = 'models/happy_sad_mod.pkl'
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
