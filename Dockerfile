@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 
 
 # Run container with the specified port
-CMD uvicorn package_folder.api_file:app --host 0.0.0.0
+#CMD uvicorn package_folder.api_file:app --host 0.0.0.0
 
 # Run container with the specified port
-#CMD uvicorn package_folder.api_file:app --host 0.0.0.0 --port $PORT
+CMD uvicorn package_folder.api_file:app --host 0.0.0.0 --port $PORT

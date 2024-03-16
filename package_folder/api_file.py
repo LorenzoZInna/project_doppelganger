@@ -5,7 +5,10 @@ app = FastAPI ()
 @app.get("/")
 
 def root():
-    return{'greeting':"gooodbye"}
+    return{'greeting':"gooodbye111"}
+#comment
+
+
 
 @app.get("/predict")
 def predict ():
