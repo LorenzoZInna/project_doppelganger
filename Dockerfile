@@ -9,6 +9,7 @@ COPY Streamlit_Interface Streamlit_Interface
 COPY notebooks notebooks
 
 # Terminal command that we want when image is built
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 
