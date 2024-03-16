@@ -5,8 +5,9 @@ app = FastAPI ()
 @app.get("/")
 
 def root():
-    return{'greeting':"hello"}
-"""@app.get("/predict")
+    return{'greeting':"gooodbye"}
+
+@app.get("/predict")
 def predict ():
     print("hello world predict")
 
@@ -16,4 +17,3 @@ def predict ():
     prediction = model.predict()
 
     return {"prediction":prediction}
-"""

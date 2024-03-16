@@ -4,3 +4,6 @@ uvicorn
 
 #.env
 python-dotenv
+
+#dockerfile
+docker
