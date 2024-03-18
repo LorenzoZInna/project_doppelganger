@@ -7,3 +7,6 @@ python-dotenv
 
 #dockerfile
 docker
+
+#tensorflow
+tensorflow
