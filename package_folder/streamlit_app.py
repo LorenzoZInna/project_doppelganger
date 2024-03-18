@@ -10,6 +10,7 @@ def main():
     # Specify the path to the pickle file
     """ TO DO!!!
     must be saved as h5 in model!
+    the call to model must be done in api file!!!
     !!!
     """
     model_path = 'models/happy_sad_mod.pkl'
