@@ -12,10 +12,12 @@ def root():
     return{'greeting':"gooodbye111"}
 #comment
 #process face from model -> emotion
-#emotion_output = model result
-#
-#model must be running on API instead of streamlit! (lighter stuff)
-#save model results as h5!
+#emotion
+"""
+model must be running on API instead of streamlit! (lighter stuff)
+save model results as h5!
+"""
+
 """
 @app.get("/get_emotion_model"):
 def get_emotion_model():
