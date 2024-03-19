@@ -9,7 +9,7 @@ python-dotenv
 docker
 
 #tensorflow
-tensorflow
+tensorflow.keras
 
 #google
 google.colab
