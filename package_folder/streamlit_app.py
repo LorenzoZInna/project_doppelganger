@@ -3,7 +3,7 @@ import pickle
 from PIL import Image
 import tensorflow as tf
 import numpy as np
-
+from tensorflow.keras.models import load_model
 
 
 def main():
@@ -13,10 +13,12 @@ def main():
     the call to model must be done in api file!!!
     !!!
     """
+    # model_path = 'models/happy_sad_mod.h5'
     model_path = 'models/happy_sad_mod.pkl'
 
     # Load the pre-trained model
     with open(model_path, 'rb') as f:
+        # !!! model = load_model(model_path)
         model = pickle.load(f)
 
     # Set up the Streamlit app
