@@ -1,45 +1,43 @@
 import streamlit as st
-import pickle
 from PIL import Image
-import tensorflow as tf
-import numpy as np
+import requests
 from tensorflow.keras.models import load_model
 
 
 def main():
-    # Specify the path to the pickle file
-    """ TO DO!!!
-    must be saved as h5 in model!
-    the call to model must be done in api file!!!
-    !!!
-    """
-    # model_path = 'models/happy_sad_mod.h5'
-    model_path = 'models/happy_sad_mod.pkl'
 
-    # Load the pre-trained model
-    with open(model_path, 'rb') as f:
-        # !!! model = load_model(model_path)
-        model = pickle.load(f)
-
-    # Set up the Streamlit app
     st.title('Project Doppelganger')
     st.subheader('How are you feeling today?')
     st.write('Please upload an image of a frontal mugshot with white background.')
 
     # Create a file uploader for uploading images
-    uploaded_file = st.file_uploader("Upload a frontal mugshot with white background", type=["jpg", "jpeg"])
+    uploaded_file = st.file_uploader("Upload a frontal mugshot with white background", type=["jpg", "jpeg","png"])
 
-    # Inform the user when the file has been uploaded
+    print(f"The type of the chosen image is {type(uploaded_file)}")
+
+    # Check the uploaded Image
     if uploaded_file is not None:
-        st.success('Image uploaded successfully!')
+        # Read Image file
+        image = Image.open(uploaded_file)
+        print(image)
+        # Display the uploaded image
+        st.image(image, caption="Uploaded Image", use_column_width=True)
 
-        # Convert the uploaded image to a format suitable for the model
-        """
-        !!! TO DO!!!
-        must load to GCP
-        wait to have it loaded to GCP
-        !!!
-        """
+        #predict url - it will change after each docker build run
+
+        predict_url = 'https://mvp-wjxeo2hbwa-ew.a.run.app/return_song?emotion=happy'
+        #Predict Button
+        predict_button = st.button('Prediction')
+        # When the Button "Prediction" is pushed >> Link it to Model
+        if predict_button:
+            files = {'img': uploaded_file.getvalue()}
+
+            response = requests.post(predict_url, files=files).json()
+
+            print(f"RESPONSE FOR API FROM MODEL: {response}")
+            print(response["Emotion"])
+            #result = response.json()
+            st.write("The emotion is ", response["Emotion"], "with probability", response["with probability of"])
 
     # Add some footer text
     st.markdown(
