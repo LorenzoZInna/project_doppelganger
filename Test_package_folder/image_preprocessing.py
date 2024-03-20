@@ -2,7 +2,7 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
 import numpy as np
 
-def img_preprocessing(inputImage):
+def image_preprocessing(inputImage):
 
      # Preprocess the image
     image= Image.open(inputImage)
