@@ -37,29 +37,9 @@ def main():
         """
         !!! TO DO!!!
         must load to GCP
-        must open from bucket
+        wait to have it loaded to GCP
         !!!
         """
-        image = Image.open(uploaded_file)
-
-        # Preprocess the image
-        target_size = (150, 150)  # Adjust according to your model's input size
-        image = image.resize(target_size)
-        image_array = np.array(image)
-        image_array = image_array.astype('float32') / 255.0  # Normalize pixel values
-
-        # Make prediction using the model
-        prediction = model.predict(np.expand_dims(image_array, axis=0))
-
-        # Display the prediction result
-        if prediction[0] > 0.5:
-            st.write("The model predicts the image is happy.", emotion='happy')
-        else:
-            st.write("The model predicts the image is sad.", emotion='sad')
-
-        # Display the preprocessed image
-        st.write("### Here is how your preprocessed image looks like:")
-        st.image(image_array, caption='Preprocessed Image', use_column_width=True)
 
     # Add some footer text
     st.markdown(
