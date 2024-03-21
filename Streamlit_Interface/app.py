@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 from tensorflow.keras.applications.vgg16 import preprocess_input
-from Streamlit_Interface.emotion_to_track_mvp import get_random_track_embed_code
+from emotion_to_track_mvp import get_random_track_embed_code
 from tensorflow.keras.models import load_model
 
 # Function to load the trained model
@@ -32,7 +32,7 @@ def predict_emotion(model, image):
 def display_spotify_link(emotion):
         #set the id from the package
         id_song_random = get_random_track_embed_code(emotion)[1]
-        return f"https://open.spotify.com/playlist/{id_song_random}"  # Example happy playlist link
+        return f"https://open.spotify.com/track/{id_song_random}"  # Example happy playlist link
 
 def main():
     st.title('Project Doppelganger')
