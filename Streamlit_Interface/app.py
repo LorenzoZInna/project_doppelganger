@@ -53,7 +53,7 @@ def main():
         processed_image = preprocess_image(image)
 
         # Load the pre-trained model from an H5 file
-        model_path = 'happy_sad_model.h5'  # Update this with the path to your H5 file
+        model_path = '../models/happy_sad_model.h5'  # Update this with the path to your H5 file
         model = load_trained_model(model_path)
 
         # Predict emotion using the model
