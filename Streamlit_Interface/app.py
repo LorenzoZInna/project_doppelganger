@@ -7,10 +7,10 @@ from tensorflow.keras.models import load_model
 # Function to load the trained model
 def load_trained_model(model_path):
     model = load_model(model_path)
-    
+
     # Print the summary of the loaded model
     print(model.summary())
-    
+
     return model
 
 # Function to preprocess the image

@@ -1,11 +1,11 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse
 from Test_package_folder.emotion_to_track_mvp import get_random_track_embed_code
 from PIL import Image
-from Test_package_folder.streamlit_app_frontend import main
-from Test_package_folder.image_preprocessing import image_preprocessing, get_image
+from Test_package_folder.image_preprocessing import image_preprocessing
 import pickle
 from tensorflow.keras.models import load_model
+from io import BytesIO
 
 app = FastAPI ()
 
@@ -16,10 +16,10 @@ def root():
 
 @app.post("/predict")
 
-async def predict(img):
-    img = img.file.read()
+async def predict(file: UploadFile = File(...)):
+    contents = await file.read()
     ######################
-    img = Image.open(BytesIO(img))
+    img = Image.open(BytesIO(contents))
     print(img.size)
 
     img_pre_proc=image_preprocessing(img)
