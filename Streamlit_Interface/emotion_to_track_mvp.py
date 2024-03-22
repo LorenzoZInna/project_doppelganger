@@ -3,21 +3,23 @@ import random
 # Dictionary mapping emotions to lists of Spotify track IDs
 emotion_tracks = {
     'happy': [
-        '0VjIjW4GlUZAMYd2vXMi3b', '3w3y8KPTfNeOKPiqUTakBh', '4uUG5RXrOk84mYEfFvj3cK', '4h9wh7iOZ0GGn8QVp4RAOB', '1zi7xx7UVEFkmKfv06H8x0',
-        '1mea3bSkSGXuIRvnydlB5b', '6UelLqGlWMcVH1E5c4H7lY', '7qiZfU4dY1lWllzX7mPBI3', '7JJmb5XwzOO8jgpou264Ml', '0ct6r3EGTcMLPtrXHDvVjc',
-        '3ZFTkvIE7kyPt6Nu3PEa7V', '7BqBn9nzAq8spo5e7cZ0dJ', '2tpWsVSb9UEmDRxAl1zhX1', '0FDzzruyVECATHXKHFs9eJ', '4cluDES4hQEUhmXj6TXkSo',
-        '4QNpBfC0zvjKqPJcyqBy9W', '4HlFJV71xXKIGcU3kRyttv', '2ENexcMEMsYk0rVJigVD3i', '0azC730Exh71aQlOt9Zj3y', '0HPD5WQqrq7wPWR7P7Dw1i',
-        '50nfwKoDiSYg8zOCREWAm5', '6UjZ1oYpXUOaEfCXsTnXiP', '6Kv8FqUL5oRtXnMQfMbK6e', '6l6HeuYUpl1VJjwcXUpCjz', '5kD9T7GForh8LnRz5ClbL8',
-        '3Af6QIoFMEqawYpaCP8tJ7', '4eXB5pavwlO3ejMypFgVsv', '6BZ3hhOkAIDGMGQNueZ5GG', '6vocnqTDG1lKO3orAp3LRR', '3bjBeyazbIgFgXYPoQK4UH',
-        '5zEJbVbOY5rRPTFD30PjfO', '0PgLNhpBCMx4d04FEP7q23', '3vZ3kW9o4v9bmb2b0o8PCg', '2jvdgmCVS2ztUWE5bIfxRb', '1nMMR4bAPJYvDcBciwOv2F',
-        '0ZpiNU0E1ILADs2ODMSKpA', '6F608N6iuoO3dReb1nCMmO', '5HpxjB5QM6Fx0N56mYA5l4', '3Wh4aB60udsy7qZPQgqTaT', '0CokSRCu5hZgP6XPoIz0iO',
-        '5jzma6gCzYtKB1DbEwFZKH', '4D6uG5THdO9tZpOPgKN7vu', '5vGlqQANWDKJFl0MBG3sg2', '19D3flTGGtzkHCtGVfG6qH', '3qHMlZfTQzGQVbzHf3GhwO',
-        '3MEa4GuewpYRUBAjk3c2ov', '4H2g0YX7AebFZJ3ylT3tCA', '1s26cVgDS5xoPWNHWBAHYu', '6Y2r6Qqw0zrDwXrIIwZ6T8', '3Er2q0jItcp8HIVYHEdrEr',
-        '1HHe0fGgrbBvGtPkIAv5K8', '44cJEtVQT2jNQV4jBYL8Tf', '7DnPf6MlOZbZgAVNEU7BZ3', '0cGHiaT4qUKMyfx5UOHw1T', '4SywM4HF3QltBCv7xRmqzJ',
-        '3PgzrQIulOiqsVk3Ckqzde', '5W83ErFkO3aKAIS1WMi6u0', '5HCyWlXZPP0y6Gqq8TgA20', '5KawlOMHjWeUjQtnuRs22c', '2Rk4JlNc2TPmZe2af99d45',
-        '5a6PD9k4poeA7cA54C18mE', '2RttW7RAu5nOAfq6YFvApB', '7lQWRAjyhTpCWFC0jmclT4', '1Yy5eDys3LWl8IAhRplp1R', '37KFiVtY5jNJEdyftDQrPb',
-        '0V6gREQL5ynP9eYZOvQh7M', '2QjOHCTQ1Jl3zawyYOpxh6', '3KPVQltGw9fId3cRLDCGtG', '2BcMwX1MPV6ZHP4tUT9uq6', '4lUmnwRybYH7mMzf16xB0y',
-        '3K9T8JWYrBShp4iIQUmO4M', '78WgTPUsFNLtCgKjIvARnA', '0PJIbOdMs3bd5AT8liULMQ', '0ppAGdFxr4NHGXlm4FzjOV', '7gq1OB2zB80u77Ly9W8r1r'
+    '0VjIjW4GlUZAMYd2vXMi3b', '3w3y8KPTfNeOKPiqUTakBh', '4uUG5RXrOk84mYEfFvj3cK', '4h9wh7iOZ0GGn8QVp4RAOB', '1zi7xx7UVEFkmKfv06H8x0',
+    '1mea3bSkSGXuIRvnydlB5b', '6UelLqGlWMcVH1E5c4H7lY', '7qiZfU4dY1lWllzX7mPBI3', '7JJmb5XwzOO8jgpou264Ml', '0ct6r3EGTcMLPtrXHDvVjc',
+    '3ZFTkvIE7kyPt6Nu3PEa7V', '7BqBn9nzAq8spo5e7cZ0dJ', '2tpWsVSb9UEmDRxAl1zhX1', '0FDzzruyVECATHXKHFs9eJ', '4cluDES4hQEUhmXj6TXkSo',
+    '4QNpBfC0zvjKqPJcyqBy9W', '4HlFJV71xXKIGcU3kRyttv', '2ENexcMEMsYk0rVJigVD3i', '0azC730Exh71aQlOt9Zj3y', '0HPD5WQqrq7wPWR7P7Dw1i',
+    '50nfwKoDiSYg8zOCREWAm5', '6Uj1ctrBOjOas8xZXGqKk4', '4356Typ82hUiFAynbLYbPn', '32OlwWuMpZ6b0aN2RZOeMS', '6ECp64rv50XVz93WvxXMGF',
+    '3cHyrEgdyYRjgJKSOiOtcS', '7ef4DlsgrMEH11cDZd32M6', '3jjujdWJ72nww5eGnfs2E7', '2PpruBYCo4H7WOBJ7Q2EwM', '754kgU5rWscRTfvlsuEwFp',
+    '1IHWl5LamUGEuP4ozKQSXZ', '6nek1Nin9q48AVZcWs9e9D', '6Qn5zhYkTa37e91HC1D7lb', '76hfruVvmfQbw0eYn1nmeC', '5YqEzk3C5c3UZ1D5fJUlXA',
+    '2bJvI42r8EF3wxjOuDav4r', '7aQjPecQdIuNd1sz3KCDhD', '1qEmFfgcLObUfQm0j1W2CK', '6FE2iI43OZnszFLuLtvvmg', '2iUXsYOEPhVqEBwsqP70rE',
+    '3JvrhDOgAt6p7K8mDyZwRd', '1gihuPhrLraKYrJMAEONyc', '567e29TDzLwZwfDuEpGTwo', '1rIKgCH4H52lrvDcz50hS8', '3rmo8F54jFF8OgYsqTxm5d',
+    '1Je1IMUlBXcx1Fz0WE7oPT', '0ByMNEPAPpOR5H69DVrTNy', '5nujrmhLynf4yMoMtj8AQF', '0O6u0VJ46W86TxN9wgyqDj', '60nZcImufyMA1MKQY3dcCH',
+    '1rfofaqEpACxVEHIZBJe6W', '5QDLhrAOJJdNAmCTJ8xMyW', '2ixsaeFioXJmMgkkbd4uj1', '3DarAbFujv6eYNliUTyqtz', '2lnzGkdtDj5mtlcOW2yRtG',
+    '1ZlHr9FYHT7YTbXCoxPq5C', '4ofwffwvvnbSkrMSCKQDaC', '6Dy1jexKYriXAVG6evyUTJ', '2M9ULmQwTaTGmAdXaXpfz5', '3Fzlg5r1IjhLk2qRw667od',
+    '5R8dQOPq8haW94K7mgERlO', '0JiY190vktuhSGN6aqJdrt', '2Rk4JlNc2TPmZe2af99d45', '0wHFktze2PHC5jDt3B17DC', '5Q0Nhxo0l2bP3pNjpGJwV1',
+    '2Xr1dTzJee307rmrkt8c0g', '3DmW6y7wTEYHJZlLo1r6XJ', '3bC1ahPIYt1btJzSSEyyrF', '0qt5f5EL92o8Snzopsv0en', '5jE48hhRu8E6zBDPRSkEq7',
+    '4N5s8lPTsjI9EGP7K4SXzB', '0Ph6L4l8dYUuXFmb71Ajnd', '5K6Ssv4Z3zRvxt0P6EKUAP', '6WrI0LAC5M1Rw2MnX2ZvEg', '6OtCIsQZ64Vs1EbzztvAv4',
+    '1tNJrcVe6gwLEiZCtprs1u', '3c8iiZGfEammKJuWTErE5x', '0n4bITAu0Y0nigrz3MFJMb', '5jzKL4BDMClWqRguW5qZvh', '6oJ6le65B3SEqPwMRNXWjY',
+    '1HFfMOxCAT4GAwaPfCdmUs', '46HNZY1i7O6jwTA7Slo2PI'
     ],
     'neutral': [
         '1SadNNfKugUYlaXTZO9g7c', '2LeF018m9vGgIAirUuOgCr', '0WVVyFVPOK3ATwptxglXHZ', '043xe58AMUGPJgCnRJynj9', '1mANYloG5MWO9OYzt7pCu9',
