@@ -29,10 +29,15 @@ def predict_emotion(model, image):
     return emotion
 
 # Function to display the Spotify link
-def display_spotify_link(emotion):
-        #set the id from the package
-        id_song_random = get_random_track_embed_code(emotion)[1]
-        return f"https://open.spotify.com/track/{id_song_random}"  # Example happy playlist link
+#def display_spotify_link(emotion):
+    #set the id from the package
+#    id_song_random = get_random_track_embed_code(emotion)[1]
+#    return f"https://open.spotify.com/track/{id_song_random}"
+
+def display_spotify_embed(emotion):
+    #set the id from the package
+    embed_code_random = get_random_track_embed_code(emotion)[0]
+    return st.markdown(embed_code_random, unsafe_allow_html=True)
 
 def main():
     st.title('Project Doppelganger')
@@ -59,14 +64,11 @@ def main():
         # Predict emotion using the model
         emotion = predict_emotion(model, processed_image)
 
-        # Get Spotify link corresponding to the predicted emotion
-        spotify_link = display_spotify_link(emotion)
+        # Display Spotify embed corresponding to the predicted emotion
+        spotify_embed = display_spotify_embed(emotion)
 
         # Display the prediction result
         st.write(f"The model predicts the image is {emotion}.")
-
-        # Display the Spotify link
-        st.write('Spotify Link:', spotify_link)
 
         # Display the preprocessed image
         st.write("### Here is how your preprocessed image looks like:")
