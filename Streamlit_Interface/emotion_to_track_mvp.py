@@ -74,6 +74,6 @@ def get_random_track_embed_code(emotion):
         raise ValueError("Invalid emotion. Please choose 'sad', 'happy', or 'neutral'.")
 
     track_id = random.choice(emotion_tracks[emotion])
-    embed_code = f'<iframe src="https://open.spotify.com/embed/track/{track_id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'
+    embed_code = f'<iframe src="https://open.spotify.com/embed/track/{track_id}" width="700" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'
 
     return embed_code,track_id
