@@ -42,10 +42,10 @@ def display_spotify_embed(emotion):
 def main():
     st.title('Project Doppelganger')
     st.subheader('How are you feeling today?')
-    st.write('Please upload an image of a frontal mugshot with a white background.')
+    st.write('### Please upload a frontal mugshot with a white background.')
 
     # Create a file uploader for uploading images
-    uploaded_file = st.file_uploader("Upload a frontal mugshot with a white background", type=["jpg", "jpeg"])
+    uploaded_file = st.file_uploader("Click on upload and select a frontal mugshot with a white background", type=["jpg", "jpeg"])
 
     # Inform the user when the file has been uploaded
     if uploaded_file is not None:
