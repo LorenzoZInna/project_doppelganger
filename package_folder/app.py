@@ -70,14 +70,14 @@ def main():
         # Get Spotify Embed corresponding to the predicted emotion
         spotify_embed = display_spotify_embed(emotion)
 
-        # Display the preprocessed image
-        st.write("### Here is how your preprocessed image looks like:")
-        st.image(image, caption='Preprocessed Image', use_column_width=True)
-
         # Link to your Doppelgangers (Google Lens)
         url_image_gcp = 'https://storage.googleapis.com/doppelganger-1-bucket/NilSadWhite.JPG'
         url_google_lens = f'https://lens.google.com/uploadbyurl?url={url_image_gcp}'
-        st.markdown(f"### [Click here to see your doppelgangers!]({url_google_lens})", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: center;'><h3><a href='{url_google_lens}' target='_blank'>Click here to see your doppelgangers!</a></h3></div>", unsafe_allow_html=True)
+
+        # Display the preprocessed image
+        st.markdown("Here's what your preprocessed image looks like:")
+        st.image(image, caption='Preprocessed Image', width=250)  # Adjust the width as needed
 
 
     # Add some footer text
