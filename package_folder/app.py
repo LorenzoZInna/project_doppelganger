@@ -29,10 +29,10 @@ def predict_emotion(model, image):
     return emotion
 
 # Function to display the Spotify link
-def display_spotify_link(emotion):
+#def display_spotify_link(emotion):
         #set the id from the package
-        id_song_random = get_random_track_embed_code(emotion)[1]
-        return f"https://open.spotify.com/track/{id_song_random}"  # Example happy playlist link
+#        id_song_random = get_random_track_embed_code(emotion)[1]
+#        return f"https://open.spotify.com/track/{id_song_random}"  # Example happy playlist link
 
 def display_spotify_embed(emotion):
     #set the id from the package
