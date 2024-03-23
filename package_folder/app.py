@@ -63,17 +63,12 @@ def main():
 
         # Predict emotion using the model
         emotion = predict_emotion(model, processed_image)
-        # Get Spotify link corresponding to the predicted emotion
-        spotify_link = display_spotify_link(emotion)
-
-        # Display Spotify embed
-        display_spotify_embed(emotion)
 
         # Display the prediction result
-        st.write(f"The model predicts the image is {emotion}.")
+        st.write(f"### The model predicts the image is {emotion}.")
 
-        # Display the Spotify link
-        st.write('Spotify Link:', spotify_link)
+        # Get Spotify Embed corresponding to the predicted emotion
+        spotify_embed = display_spotify_embed(emotion)
 
         # Display the preprocessed image
         st.write("### Here is how your preprocessed image looks like:")
