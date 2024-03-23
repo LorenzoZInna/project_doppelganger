@@ -74,10 +74,11 @@ def main():
         st.write("### Here is how your preprocessed image looks like:")
         st.image(image, caption='Preprocessed Image', use_column_width=True)
 
-        #Link to your Doppelgangers (Google Lens)
-        url_image_gcp ='https://storage.googleapis.com/doppelganger-1-bucket/NilSadWhite.JPG'
-        url_google_lens=f'https://lens.google.com/uploadbyurl?url={url_image_gcp}'
-        st.write(f"### Click link to see your doppelgangers!:{url_google_lens} ")
+        # Link to your Doppelgangers (Google Lens)
+        url_image_gcp = 'https://storage.googleapis.com/doppelganger-1-bucket/NilSadWhite.JPG'
+        url_google_lens = f'https://lens.google.com/uploadbyurl?url={url_image_gcp}'
+        st.markdown(f"### [Click here to see your doppelgangers!]({url_google_lens})", unsafe_allow_html=True)
+
 
     # Add some footer text
     st.markdown(
