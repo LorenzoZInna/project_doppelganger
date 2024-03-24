@@ -1,9 +1,8 @@
 # Project Doppelganger
+![bg](https://github.com/MunawarJohar/project_doppelganger/assets/106137102/41618950-72be-4e81-b623-eba7b4f6498f)
+
 
 Project Doppelganger is a data science project that utilizes facial recognition technology to analyze facial expressions and predict emotions. Based on the detected emotion, the application matches the user with a song from a curated playlist on Spotify that reflects their mood.
-
-<img src="https://i.ibb.co/N9zL3dB/pixlr-image-generator-87f2b805-7f1c-4295-ab97-78fff6e53dbd.png" width="700px;"/>
-
 
 
 ## Features
@@ -14,7 +13,8 @@ Project Doppelganger is a data science project that utilizes facial recognition 
 - **User Interaction**: Users can upload their photos and receive personalized song recommendations based on their facial expression.
 
 - **Feedback Loop**: Allows users to rate the accuracy of the emotion prediction and provide feedback on the recommended songs. 
-<img src="https://i.ibb.co/Df607BN/pixlr-image-generator-eda7a538-ed68-4f21-8a85-41ec80ba191b.png" width="700px;"/>
+
+![features](https://github.com/MunawarJohar/project_doppelganger/assets/106137102/a3faa81b-eb84-4e27-a163-fdff05af6168)
 
 
 ## Technology Used
@@ -25,23 +25,17 @@ Project Doppelganger is a data science project that utilizes facial recognition 
 - **Integration**: Spotify API for retrieving song recommendations based on user emotion
   
 
-  
 
-## Clone the project
-To run the project locally, follow these steps:
-Clone the project:
-  ```bash
-   git clone https://github.com/LorenzoZInna/project_doppelganger.git
+## Contributors
+This project was created by the following contributors as a part of Le Wagon Data Science #1455:
 
+- [Daniel Alejandro Bernal Eckstein](https://github.com/danecks)
+- [Jean-Baptiste](https://github.com/jb-paris)
+- [Lorenzo Zinna](https://github.com/LorenzoZInna)
+- [Nil Barcons](https://github.com/Nil-Barcons)
+- [Noor Matalka](https://github.com/nmatalka)
+![contribute](https://github.com/MunawarJohar/project_doppelganger/assets/106137102/1b2c97c7-789f-4558-8773-1f829692ffa2)
 
-   cd project_doppelganger
-   ```
-## Installation
-Install the required dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
 ## Startup the project
 Run the application using the Makefile:
 
@@ -98,18 +92,19 @@ To deploy your application to Google Cloud Run, you can follow these steps:
    ```
 
    This command will push the Docker image to Google Cloud Registry.
+  
 
 
+## Install
+Install the required dependencies:
 
-
-
-## Contributors
-
-<img src="https://github.com/LorenzoZInna.png" width="100px;"/>
-<img src="https://github.com/Nil-Barcons.png" width="100px;"/> 
-<img src="https://github.com/nmatalka.png" width="100px;"/> 
-<img src="https://github.com/danecks.png" width="100px;"/> 
-<img src="https://github.com/jb-paris.png" width="100px;"/>
-
+   ```bash
+   pip install -r requirements.txt
+   ```
+Clone the project and install it:
+To run the project locally, follow these steps:
+Clone the project:
+  ```bash
+   git clone https://github.com/LorenzoZInna/project_doppelganger.git
 
 
