@@ -68,9 +68,9 @@ def main():
         spotify_embed = display_spotify_embed(emotion)
 
         # Link to your Doppelgangers (Google Lens)
-        url_image_gcp = 'https://storage.googleapis.com/doppelganger-1-bucket/NilSadWhite.JPG'
-        url_google_lens = f'https://lens.google.com/uploadbyurl?url={url_image_gcp}'
-        st.markdown(f"<div style='text-align: center;'><h3><a href='{url_google_lens}' target='_blank'>Doppelganger Identification Feature Coming Soon ------> Stay Tuned!</a></h3></div>", unsafe_allow_html=True)
+        #url_image_gcp = 'https://storage.googleapis.com/doppelganger-1-bucket/NilSadWhite.JPG'
+        #url_google_lens = f'https://lens.google.com/uploadbyurl?url={url_image_gcp}'
+        #st.markdown(f"<div style='text-align: center;'><h3><a href='{url_google_lens}' target='_blank'>Doppelganger Identification Feature Coming Soon ------> Stay Tuned!</a></h3></div>", unsafe_allow_html=True)
 
         # Display the preprocessed image
         st.markdown("Here's what your preprocessed image looks like:")
