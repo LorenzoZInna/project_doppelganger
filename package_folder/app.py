@@ -39,7 +39,7 @@ def display_spotify_embed(emotion):
 def main():
     st.title('Project Doppelganger')
     st.subheader('How are you feeling today?')
-    st.write('### Show us to discover a song that matches your mood.')
+    st.write('### Want to discover a song that matches your mood?')
 
     # Create a file uploader for uploading images
     uploaded_file = st.file_uploader("Please upload a frontal portrait photo of yourself with a white background", type=["jpg", "jpeg"])
