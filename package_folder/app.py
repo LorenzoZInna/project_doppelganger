@@ -4,6 +4,9 @@ import numpy as np
 from tensorflow.keras.applications.vgg16 import preprocess_input
 from emotion_to_track_mvp import get_random_track_embed_code
 from tensorflow.keras.models import load_model
+from fastapi import FastAPI, File, UploadFile, HTTPException
+
+app = FastAPI
 
 # Function to load the trained model
 def load_trained_model(model_path):
@@ -28,12 +31,6 @@ def predict_emotion(model, image):
     emotion = "happy" if prediction[0] > 0.5 else "sad"
     return emotion
 
-# Function to display the Spotify link
-#def display_spotify_link(emotion):
-        #set the id from the package
-#        id_song_random = get_random_track_embed_code(emotion)[1]
-#        return f"https://open.spotify.com/track/{id_song_random}"  # Example happy playlist link
-
 def display_spotify_embed(emotion):
     #set the id from the package
     embed_code_random = get_random_track_embed_code(emotion)[0]
@@ -42,10 +39,10 @@ def display_spotify_embed(emotion):
 def main():
     st.title('Project Doppelganger')
     st.subheader('How are you feeling today?')
-    st.write('### Please upload a frontal mugshot with a white background.')
+    st.write('### Show us to discover a song that matches your mood.')
 
     # Create a file uploader for uploading images
-    uploaded_file = st.file_uploader("Click on upload and select a frontal mugshot with a white background", type=["jpg", "jpeg"])
+    uploaded_file = st.file_uploader("Please upload a frontal portrait photo of yourself with a white background", type=["jpg", "jpeg"])
 
     # Inform the user when the file has been uploaded
     if uploaded_file is not None:
@@ -65,7 +62,7 @@ def main():
         emotion = predict_emotion(model, processed_image)
 
         # Display the prediction result
-        st.write(f"### The model predicts the image is {emotion}.")
+        st.write(f"### The model predicts you're feeling {emotion}.")
 
         # Get Spotify Embed corresponding to the predicted emotion
         spotify_embed = display_spotify_embed(emotion)
@@ -73,7 +70,7 @@ def main():
         # Link to your Doppelgangers (Google Lens)
         url_image_gcp = 'https://storage.googleapis.com/doppelganger-1-bucket/NilSadWhite.JPG'
         url_google_lens = f'https://lens.google.com/uploadbyurl?url={url_image_gcp}'
-        st.markdown(f"<div style='text-align: center;'><h3><a href='{url_google_lens}' target='_blank'>Click here to see your doppelgangers!</a></h3></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: center;'><h3><a href='{url_google_lens}' target='_blank'>Doppelganger Identification Feature Coming Soon ------> Stay Tuned!</a></h3></div>", unsafe_allow_html=True)
 
         # Display the preprocessed image
         st.markdown("Here's what your preprocessed image looks like:")
