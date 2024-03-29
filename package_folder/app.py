@@ -32,21 +32,48 @@ def predict_emotion(model, image):
     return emotion
 
 def display_spotify_embed(emotion):
-    #set the id from the package
     embed_code_random = get_random_track_embed_code(emotion)[0]
-    return st.markdown(embed_code_random, unsafe_allow_html=True)
+    embed_code_with_style = f"""
+    <div style='height:100%; width:100%; display: flex; justify-content: center; align-items: center;'>
+        <style>
+            iframe {{
+                margin: 0 !important;
+                padding: 0 !important;
+                height: 232px !important; /* Adjust height as necessary */
+                width: 100% !important;
+            }}
+        </style>
+        {embed_code_random}
+    </div>
+    """
+    return st.markdown(embed_code_with_style, unsafe_allow_html=True)
 
 def main():
     st.title('Project Doppelganger')
     st.subheader('How are you feeling today?')
     st.write('### Want to discover a song that matches your mood?')
 
-    # Create a file uploader for uploading images
-    uploaded_file = st.file_uploader("Please upload a frontal portrait photo of yourself with a white background", type=["jpg", "jpeg"])
+    # Layout with two columns
+    col1, col2 = st.columns([3, 1])  # Adjust the ratio of the column widths as needed
 
-    # Inform the user when the file has been uploaded
+    with col1:
+        # Create a file uploader for uploading images
+        uploaded_file = st.file_uploader("Please upload a frontal portrait photo of yourself with a white background", type=["jpg", "jpeg"])
+
+
+    # If a file is uploaded, display it in the second column
     if uploaded_file is not None:
-        st.success('Image uploaded successfully!')
+        with col2:
+            st.write("<div style='display: flex; height: 100%; align-items: center; justify-content: center;'>", unsafe_allow_html=True)
+            image = Image.open(uploaded_file)
+            st.image(image, caption='Uploaded Image', width=150)
+            st.write("</div>", unsafe_allow_html=True)
+
+
+    # Only proceed with loading the model and predicting if an image is uploaded
+    if uploaded_file is not None:
+
+        st.success('Image processed successfully!')
 
         # Convert the uploaded image to a format suitable for the model
         image = Image.open(uploaded_file)
@@ -62,7 +89,7 @@ def main():
         emotion = predict_emotion(model, processed_image)
 
         # Display the prediction result
-        st.write(f"### The model predicts you're feeling {emotion}, here's a song for you:")
+        st.write(f"### The model predicts you're {emotion.upper()}, here's a song for you:")
 
         # Get Spotify Embed corresponding to the predicted emotion
         spotify_embed = display_spotify_embed(emotion)
@@ -71,10 +98,6 @@ def main():
         #url_image_gcp = 'https://storage.googleapis.com/doppelganger-1-bucket/NilSadWhite.JPG'
         #url_google_lens = f'https://lens.google.com/uploadbyurl?url={url_image_gcp}'
         #st.markdown(f"<div style='text-align: center;'><h3><a href='{url_google_lens}' target='_blank'>Doppelganger Identification Feature Coming Soon ------> Stay Tuned!</a></h3></div>", unsafe_allow_html=True)
-
-        # Display the preprocessed image
-        #st.markdown("Here's what your preprocessed image looks like:")
-        #st.image(image, caption='Preprocessed Image', width=250)  # Adjust the width as needed
 
 
     # Add some footer text
