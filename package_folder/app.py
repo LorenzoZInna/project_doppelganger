@@ -62,7 +62,7 @@ def main():
         emotion = predict_emotion(model, processed_image)
 
         # Display the prediction result
-        st.write(f"### The model predicts you're feeling {emotion}.")
+        st.write(f"### The model predicts you're feeling {emotion}, here's a song for you:")
 
         # Get Spotify Embed corresponding to the predicted emotion
         spotify_embed = display_spotify_embed(emotion)
@@ -73,8 +73,8 @@ def main():
         #st.markdown(f"<div style='text-align: center;'><h3><a href='{url_google_lens}' target='_blank'>Doppelganger Identification Feature Coming Soon ------> Stay Tuned!</a></h3></div>", unsafe_allow_html=True)
 
         # Display the preprocessed image
-        st.markdown("Here's what your preprocessed image looks like:")
-        st.image(image, caption='Preprocessed Image', width=250)  # Adjust the width as needed
+        #st.markdown("Here's what your preprocessed image looks like:")
+        #st.image(image, caption='Preprocessed Image', width=250)  # Adjust the width as needed
 
 
     # Add some footer text
