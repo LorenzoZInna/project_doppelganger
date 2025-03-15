@@ -54,7 +54,7 @@ def display_spotify_embed(emotion):
     return st.markdown(embed_code_random, unsafe_allow_html=True)
 
 def main():
-    st.title('Project Doppelganger')
+    st.title('Mood & Doppelganger')
     st.subheader('How are you feeling today?')
     st.write('### Please upload a frontal mugshot with a white background.')
 
