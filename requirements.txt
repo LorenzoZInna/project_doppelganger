@@ -13,6 +13,6 @@ tensorflow
 
 #streamlit
 streamlit
-
+google-cloud-storage streamlit
 #python-multipart
 python-multipart
