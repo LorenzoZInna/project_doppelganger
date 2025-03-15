@@ -112,8 +112,8 @@ def main():
         st.markdown(f"<div style='text-align: center;'><h3><a href='{url_google_lens}' target='_blank'>Click here to see your doppelgangers!</a></h3></div>", unsafe_allow_html=True)
 
         # Display the preprocessed image
-        st.markdown("Here's what your preprocessed image looks like:")
-        st.image(image, caption='Preprocessed Image', width=250)  # Adjust the width as needed
+        #st.markdown("Here's what your preprocessed image looks like:")
+        #st.image(image, caption='Preprocessed Image', width=250)  # Adjust the width as needed
 
     # Add some footer text
     st.markdown(
